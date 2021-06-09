@@ -10,7 +10,8 @@ namespace HeistPartII
         public int PercentageCut { get; set; }
         public void PerformSkill(Bank bank)
         {
-            int Skill = bank.VaultScore - SkillLevel;
+            int skill = bank.VaultScore - SkillLevel;
+          bank.VaultScore = skill;
         }
          public string Specialty {get ;set; }
         public int id {get;set;}

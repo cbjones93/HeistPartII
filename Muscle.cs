@@ -12,6 +12,7 @@ namespace HeistPartII
           public void PerformSkill(Bank bank)
         {
             int Skill = bank.SecurityGuardScore - SkillLevel;
+            bank.SecurityGuardScore = Skill;
         }
         public string Specialty {get ;set; }
         public int id {get;set;}

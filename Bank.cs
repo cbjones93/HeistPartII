@@ -14,11 +14,8 @@ namespace HeistPartII
 
         public bool IsSecure()
         {
-            if(CashOnHand >0)
-            {
-                return true;
-            }
-            else if(AlarmScore >0)
+          
+           if(AlarmScore >0)
              {
                 return true;
             }
