@@ -12,6 +12,7 @@ namespace HeistPartII
         {
             int Skill = bank.VaultScore - SkillLevel;
         }
+         public string Specialty {get ;set; }
 
     }
 }

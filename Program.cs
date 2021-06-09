@@ -7,23 +7,26 @@ namespace HeistPartII
     {
         static void Main(string[] args)
         {
-          
-                Random i = new Random();
-                Bank bank = new Bank()
-                {
-                    CashOnHand = i.Next(50000, 1000000),
-                    AlarmScore = i.Next(0,100),
-                    VaultScore = i.Next(0,100),
-                    SecurityGuardScore= i.Next(0,100)
-                 
-                };
-            
+
+            List<IRobber> crew = new List<IRobber>();
+
+            Random i = new Random();
+            Bank bank = new Bank()
+            {
+                CashOnHand = i.Next(50000, 1000000),
+                AlarmScore = i.Next(0, 100),
+                VaultScore = i.Next(0, 100),
+                SecurityGuardScore = i.Next(0, 100)
+
+            };
+
             List<IRobber> rolodex = new List<IRobber>();
             Muscle muscle1 = new Muscle()
             {
                 Name = "Chad",
                 SkillLevel = 50,
-                PercentageCut = 25
+                PercentageCut = 25,
+                Specialty = "Muscle"
 
             };
             rolodex.Add(muscle1);
@@ -32,14 +35,16 @@ namespace HeistPartII
             {
                 Name = "Larry",
                 SkillLevel = 60,
-                PercentageCut = 25
+                PercentageCut = 25,
+                Specialty = "Muscle"
             };
             rolodex.Add(muscle2);
             Hacker hacker1 = new Hacker()
             {
                 Name = "Zip",
                 SkillLevel = 40,
-                PercentageCut = 25
+                PercentageCut = 25,
+                Specialty = "Hacker"
 
             };
             rolodex.Add(hacker1);
@@ -47,7 +52,8 @@ namespace HeistPartII
             {
                 Name = "Zeek",
                 SkillLevel = 40,
-                PercentageCut = 25
+                PercentageCut = 25,
+                Specialty = "Hacker"
 
             };
             rolodex.Add(hacker2);
@@ -55,7 +61,8 @@ namespace HeistPartII
             {
                 Name = "Charles",
                 SkillLevel = 70,
-                PercentageCut = 50
+                PercentageCut = 50,
+                Specialty = "Lock Specialist"
 
             };
             rolodex.Add(lock1);
@@ -63,7 +70,8 @@ namespace HeistPartII
             {
                 Name = "Dave",
                 SkillLevel = 45,
-                PercentageCut = 25
+                PercentageCut = 25,
+                Specialty = "Lock Specialist"
 
             };
             rolodex.Add(lock2);
@@ -93,7 +101,8 @@ namespace HeistPartII
                         {
                             Name = name,
                             SkillLevel = skill,
-                            PercentageCut = cut
+                            PercentageCut = cut,
+                            Specialty = "Hacker"
                         };
                         rolodex.Add(hacker3);
                     }
@@ -103,7 +112,8 @@ namespace HeistPartII
                         {
                             Name = name,
                             SkillLevel = skill,
-                            PercentageCut = cut
+                            PercentageCut = cut,
+                            Specialty = "Muscle"
                         };
                         rolodex.Add(muscle3);
                     }
@@ -113,7 +123,8 @@ namespace HeistPartII
                         {
                             Name = name,
                             SkillLevel = skill,
-                            PercentageCut = cut
+                            PercentageCut = cut,
+                            Specialty = "Lock Specialist"
                         };
                         rolodex.Add(lock3);
                     }
@@ -124,11 +135,11 @@ namespace HeistPartII
 
                 }
             }
-           
+
 
             Create();
             Console.WriteLine("Lets recon the bank!");
-             if (bank.AlarmScore > bank.VaultScore && bank.AlarmScore > bank.SecurityGuardScore)
+            if (bank.AlarmScore > bank.VaultScore && bank.AlarmScore > bank.SecurityGuardScore)
             {
                 Console.WriteLine("Most Secure: Alarm");
             }
@@ -151,6 +162,15 @@ namespace HeistPartII
             else if (bank.SecurityGuardScore < bank.AlarmScore && bank.SecurityGuardScore < bank.VaultScore)
             {
                 Console.WriteLine("Least Secure: Security");
+            }
+
+            Console.WriteLine($"Now select your crew!");
+            int index = 1;
+            foreach (IRobber member in rolodex)
+            {
+                Console.Write($"{index}) ");
+                Console.WriteLine($"Name: {member.Name} || Speciality : {member.Specialty}  || Skill Level:{member.SkillLevel} || Cut of the loot: {member.PercentageCut}%");
+                index++;
             }
         }
 
