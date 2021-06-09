@@ -14,5 +14,6 @@ namespace HeistPartII
             int Skill = bank.SecurityGuardScore - SkillLevel;
         }
         public string Specialty {get ;set; }
+        public int id {get;set;}
     }
 }

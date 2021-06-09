@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HeistPartII
 {
@@ -26,7 +27,8 @@ namespace HeistPartII
                 Name = "Chad",
                 SkillLevel = 50,
                 PercentageCut = 25,
-                Specialty = "Muscle"
+                Specialty = "Muscle",
+                id = 1
 
             };
             rolodex.Add(muscle1);
@@ -36,7 +38,8 @@ namespace HeistPartII
                 Name = "Larry",
                 SkillLevel = 60,
                 PercentageCut = 25,
-                Specialty = "Muscle"
+                Specialty = "Muscle",
+                  id = 2
             };
             rolodex.Add(muscle2);
             Hacker hacker1 = new Hacker()
@@ -44,7 +47,8 @@ namespace HeistPartII
                 Name = "Zip",
                 SkillLevel = 40,
                 PercentageCut = 25,
-                Specialty = "Hacker"
+                Specialty = "Hacker",
+                  id = 3
 
             };
             rolodex.Add(hacker1);
@@ -53,7 +57,8 @@ namespace HeistPartII
                 Name = "Zeek",
                 SkillLevel = 40,
                 PercentageCut = 25,
-                Specialty = "Hacker"
+                Specialty = "Hacker",
+                  id = 4
 
             };
             rolodex.Add(hacker2);
@@ -62,7 +67,8 @@ namespace HeistPartII
                 Name = "Charles",
                 SkillLevel = 70,
                 PercentageCut = 50,
-                Specialty = "Lock Specialist"
+                Specialty = "Lock Specialist",
+                  id = 5
 
             };
             rolodex.Add(lock1);
@@ -71,7 +77,8 @@ namespace HeistPartII
                 Name = "Dave",
                 SkillLevel = 45,
                 PercentageCut = 25,
-                Specialty = "Lock Specialist"
+                Specialty = "Lock Specialist",
+                  id = 6
 
             };
             rolodex.Add(lock2);
@@ -102,7 +109,8 @@ namespace HeistPartII
                             Name = name,
                             SkillLevel = skill,
                             PercentageCut = cut,
-                            Specialty = "Hacker"
+                            Specialty = "Hacker",
+                            id = rolodex.Count()+1
                         };
                         rolodex.Add(hacker3);
                     }
@@ -113,7 +121,8 @@ namespace HeistPartII
                             Name = name,
                             SkillLevel = skill,
                             PercentageCut = cut,
-                            Specialty = "Muscle"
+                            Specialty = "Muscle",
+                            id = rolodex.Count()+1
                         };
                         rolodex.Add(muscle3);
                     }
@@ -124,7 +133,8 @@ namespace HeistPartII
                             Name = name,
                             SkillLevel = skill,
                             PercentageCut = cut,
-                            Specialty = "Lock Specialist"
+                            Specialty = "Lock Specialist",
+                            id = rolodex.Count()+1
                         };
                         rolodex.Add(lock3);
                     }
@@ -169,9 +179,13 @@ namespace HeistPartII
             foreach (IRobber member in rolodex)
             {
                 Console.Write($"{index}) ");
-                Console.WriteLine($"Name: {member.Name} || Speciality : {member.Specialty}  || Skill Level:{member.SkillLevel} || Cut of the loot: {member.PercentageCut}%");
+                Console.WriteLine($" Id: {member.id} Name: {member.Name} || Speciality : {member.Specialty}  || Skill Level:{member.SkillLevel} || Cut of the loot: {member.PercentageCut}%");
+                
                 index++;
             }
+
+           int addcrew = Int32.Parse(Console.ReadLine());
+            
         }
 
 
