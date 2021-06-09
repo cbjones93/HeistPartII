@@ -124,8 +124,34 @@ namespace HeistPartII
 
                 }
             }
+           
+
             Create();
-            
+            Console.WriteLine("Lets recon the bank!");
+             if (bank.AlarmScore > bank.VaultScore && bank.AlarmScore > bank.SecurityGuardScore)
+            {
+                Console.WriteLine("Most Secure: Alarm");
+            }
+            else if (bank.VaultScore > bank.AlarmScore && bank.VaultScore > bank.SecurityGuardScore)
+            {
+                Console.WriteLine("Most Secure: Vault");
+            }
+            else if (bank.SecurityGuardScore > bank.AlarmScore && bank.SecurityGuardScore > bank.VaultScore)
+            {
+                Console.WriteLine("Most Secure: Security");
+            }
+            if (bank.AlarmScore < bank.VaultScore && bank.AlarmScore < bank.SecurityGuardScore)
+            {
+                Console.WriteLine("Least Secure: Alarm");
+            }
+            else if (bank.VaultScore < bank.AlarmScore && bank.VaultScore < bank.SecurityGuardScore)
+            {
+                Console.WriteLine("Least Secure: Vault");
+            }
+            else if (bank.SecurityGuardScore < bank.AlarmScore && bank.SecurityGuardScore < bank.VaultScore)
+            {
+                Console.WriteLine("Least Secure: Security");
+            }
         }
 
 
